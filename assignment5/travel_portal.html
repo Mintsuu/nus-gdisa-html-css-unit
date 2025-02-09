@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Travel Portal</title>
+    <!-- ./profilepage_alt.css for dark mode, ./profilepage.css for normal/light mode -->
+    <link rel="stylesheet" href="./travel_portal.css" />
+    <!-- <link rel="stylesheet" href="./profilepage.css" /> -->
+  </head>
+  <body>
+    <div class="container">
+      <img
+        src="data:image/png;base64,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"
+        style="border-radius: 50%; width: 120px"
+      />
+      <form class="form" action="mailto:e1514305@u.nus.edu" method="post">
+        <table>
+          <tr>
+            <th>First Name:</th>
+            <td>
+              <input type="text" placeholder="E.g. Alfred" name="first_name" />
+            </td>
+          </tr>
+          <tr>
+            <th>Last Name:</th>
+            <td>
+              <input type="text" placeholder="E.g. Tan" name="last_name" />
+            </td>
+          </tr>
+          <tr>
+            <th>Gender:</th>
+            <td>
+              <div>
+                <input type="radio" name="gender" value="male" /><label
+                  >Male</label
+                >
+                <input type="radio" name="gender" value="female" /><label
+                  >Female</label
+                >
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <th>Email:</th>
+            <td>
+              <input
+                type="email"
+                placeholder="E.g. alfred@gmail.com"
+                name="email"
+              />
+            </td>
+          </tr>
+          <tr>
+            <th>Budget:</th>
+            <td>
+              <input
+                type="number"
+                placeholder="E.g. 4000"
+                name="budget"
+                value="budget"
+              />
+            </td>
+          </tr>
+          <tr>
+            <th>Date of Birth:</th>
+            <td><input type="date" name="dob" value="dob" /></td>
+          </tr>
+          <tr>
+            <th>Country:</th>
+            <td>
+              <select name="country">
+                <option value="singapore">Singapore</option>
+                <option value="malaysia">Malaysia</option>
+                <option value="indonesia">Indonesia</option>
+                <option value="vietnam">Vietnam</option>
+                <option value="japan">Japan</option>
+                <option value="korea">Korea</option>
+                <option value="thailand">Thailand</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <th>Acknowledgements:</th>
+            <td>
+              <div
+                style="
+                  display: flex;
+                  align-items: flex-start;
+                  flex-direction: column;
+                "
+              >
+                <div>
+                  <input
+                    type="checkbox"
+                    value="terms_and_conditions"
+                    name="terms_and_conditions"
+                  /><label>I have read the terms and conditions.</label>
+                </div>
+                <div>
+                  <input
+                    type="checkbox"
+                    value="user_liability"
+                    name="user_liability"
+                  /><label
+                    >I will not hold the company liable for any damages.</label
+                  >
+                </div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <th>Other Requirements:</th>
+            <td>
+              <textarea
+                name="other_req"
+                placeholder="Please add any other enquiries here."
+              ></textarea>
+            </td>
+          </tr>
+          <tr>
+            <th colspan="2"><input type="submit" value="Submit" /></th>
+          </tr>
+        </table>
+      </form>
+    </div>
+  </body>
+</html>

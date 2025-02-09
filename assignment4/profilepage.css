@@ -1,0 +1,13 @@
+* {
+  background-color: #eeeeee;
+  font-family: "Courier New", Courier, monospace;
+}
+header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+div {
+  margin: 8px;
+}

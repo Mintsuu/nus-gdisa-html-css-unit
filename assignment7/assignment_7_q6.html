@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Form</title>
+    <style>
+      td,
+      th {
+        min-width: 200px;
+      }
+
+      th {
+        text-align: left;
+      }
+
+      input {
+        padding: 6px;
+      }
+
+      input[type="submit"] {
+        width: 100%;
+      }
+
+      textarea {
+        width: 250px;
+        height: 100px;
+      }
+    </style>
+    <script type="text/javascript">
+      function submit_form() {
+        let errors = [];
+
+        const name = document.getElementById("name").value;
+        const age = document.getElementById("age").value;
+        const gender = getGender();
+        const phone = document.getElementById("phone").value;
+        const hobbies = getHobbies();
+
+        if (isBlank(name)) errors.push("Name is blank");
+        if (isTooLong(name)) errors.push("Name is too long");
+        if (!isNumeric(age)) errors.push("Age must be a number");
+        if (!isPositive(age))
+          errors.push("Age should not be a negative number");
+        if (gender === "") errors.push("Gender must be selected");
+
+        if (errors.length === 0)
+          document.getElementById("output").innerHTML = `Name: ${name}
+        Age: ${age}
+        Gender: ${gender}
+        Phone: ${phone}
+        Hobbies: ${hobbies}`;
+
+        document.getElementById("error_notice").innerHTML = errors.map(
+          (error, i) => `${error} `
+        );
+      }
+
+      function isBlank(value) {
+        if (value) return false;
+        else return true;
+      }
+
+      function isTooLong(value) {
+        if (value.length < 15) return false;
+        else return true;
+      }
+
+      function isNumeric(value) {
+        if (typeof value === "number" || typeof value === "bigint")
+          return false;
+        else return true;
+      }
+
+      function isPositive(value) {
+        if (value < 0) return false;
+        else return true;
+      }
+
+      function getHobbies() {
+        let temp = [];
+        const hobbies = document.querySelectorAll(".hobbies:checked");
+        hobbies.forEach((checkbox) => {
+          temp.push(checkbox.value);
+        });
+
+        return temp;
+      }
+
+      function getGender() {
+        try {
+          return document.querySelector("input[name='gender']:checked").value;
+        } catch (error) {
+          return "";
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <table>
+        <tr>
+          <th>Name:</th>
+          <td>
+            <input type="text" name="name" id="name" />
+          </td>
+        </tr>
+        <tr>
+          <th>Age:</th>
+          <td>
+            <input type="text" name="age" id="age" />
+          </td>
+        </tr>
+        <tr>
+          <th>Gender:</th>
+          <td>
+            <div>
+              <input type="radio" name="gender" value="male" /><label
+                >Male</label
+              >
+              <input type="radio" name="gender" value="female" /><label
+                >Female</label
+              >
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <th>Phone:</th>
+          <td>
+            <input type="number" name="phone" id="phone" />
+          </td>
+        </tr>
+        <tr>
+          <th>Hobbies:</th>
+          <td>
+            <div
+              style="
+                display: flex;
+                align-items: flex-start;
+                flex-direction: row;
+              "
+            >
+              <div>
+                <input
+                  type="checkbox"
+                  value="terms_and_conditions"
+                  class="hobbies"
+                /><label>Reading</label>
+              </div>
+              <div>
+                <input
+                  type="checkbox"
+                  value="sports"
+                  name="sports"
+                  class="hobbies"
+                /><label>Sports</label>
+              </div>
+              <div>
+                <input
+                  type="checkbox"
+                  value="movies"
+                  name="movies"
+                  class="hobbies"
+                /><label>Movies</label>
+              </div>
+              <div>
+                <input
+                  type="checkbox"
+                  value="travelling"
+                  name="travelling"
+                  class="hobbies"
+                /><label>Travelling</label>
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <th colspan="2">
+            <input type="submit" value="Submit" onclick="submit_form()" />
+          </th>
+        </tr>
+        <tr>
+          <th>Output</th>
+          <td>
+            <textarea name="output" id="output" disabled></textarea>
+          </td>
+        </tr>
+        <tr>
+          <th>Errors</th>
+          <td>
+            <textarea name="error_notice" id="error_notice" disabled></textarea>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </body>
+</html>

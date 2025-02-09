@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>MyJS_Code</title>
+    <style>
+      th,
+      td {
+        min-width: 100px;
+      }
+    </style>
+    <script type="text/javascript">
+      function question1() {
+        let input = document.getElementById("input_value").value;
+        let result =
+          3 * Math.pow(input, 3) - 7 * Math.pow(input, 2) + 2 * input + 5;
+
+        document.getElementById("result_value").value = result;
+      }
+
+      function question2() {
+        let input = document.getElementById("time_value").value;
+        if (Number(input) > 12)
+          document.getElementById("greeting").innerHTML = "Good afternoon";
+        else document.getElementById("greeting").innerHTML = "Good morning";
+      }
+
+      function question3() {
+        let name = document.getElementById("user_name").value;
+        let input = document.getElementById("user_time_value").value;
+        if (Number(input) > 12)
+          document.getElementById(
+            "user_greeting"
+          ).innerHTML = `Good afternoon ${name}`;
+        else
+          document.getElementById(
+            "user_greeting"
+          ).innerHTML = `Good morning ${name}`;
+      }
+
+      function question4() {
+        let loops = Number(document.getElementById("loops").value);
+
+        document.getElementById("loop_output").innerHTML = [
+          ...new Array(loops),
+        ].reduce((total, _, index) => total + index + 1, 0);
+      }
+
+      function question5() {
+        for (let x = 1; x <= 5; x++) {
+          var tr = document.createElement("tr");
+          tr.innerHTML = `<td>${
+            x.toPrecision(4) % 1 != 0 ? x.toPrecision(4) : x
+          }</td>
+          <td>${
+            (x * x).toPrecision(4) % 1 != 0 ? (x * x).toPrecision(4) : x * x
+          }</td>
+          <td>${
+            (1 / x).toPrecision(4) % 1 != 0 ? (1 / x).toPrecision(4) : 1 / x
+          }</td>
+          <td>${
+            Math.sqrt(x).toPrecision(4) % 1 != 0
+              ? Math.sqrt(x).toPrecision(4)
+              : Math.sqrt(x)
+          }</td>`;
+          document.getElementById("generate_x").appendChild(tr);
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <table>
+      <tr>
+        <th colspan="2">Question 1</th>
+      </tr>
+      <tr>
+        <th>Enter a value:</th>
+        <th><input type="number" id="input_value" /></th>
+      </tr>
+      <tr>
+        <th>The result is:</th>
+        <td><input type="number" id="result_value" disabled /></td>
+      </tr>
+      <tr>
+        <th colspan="2">
+          <input type="button" value="Compute" onclick="question1()" />
+        </th>
+      </tr>
+      <tr>
+        <th colspan="2">Question 2</th>
+      </tr>
+      <tr>
+        <th>What is the time of the day?</th>
+        <th><input type="number" id="time_value" /></th>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <div
+            id="greeting"
+            style="text-align: center; font-size: 24px; font-weight: bold"
+          ></div>
+        </td>
+      </tr>
+      <tr>
+        <th colspan="2">
+          <input type="button" value="Compute" onclick="question2()" />
+        </th>
+      </tr>
+      <tr>
+        <th colspan="2">Question 3</th>
+      </tr>
+      <tr>
+        <th>What is your name?</th>
+        <th><input type="text" id="user_name" /></th>
+      </tr>
+      <tr>
+        <th>What is the time of the day?</th>
+        <th><input type="number" id="user_time_value" /></th>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <div
+            id="user_greeting"
+            style="text-align: center; font-size: 24px; font-weight: bold"
+          ></div>
+        </td>
+      </tr>
+      <tr>
+        <th colspan="2">
+          <input type="button" value="Compute" onclick="question3()" />
+        </th>
+      </tr>
+      <tr>
+        <th colspan="2">Question 4</th>
+      </tr>
+      <tr>
+        <th>Number of loops?</th>
+        <th><input type="number" id="loops" /></th>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <ul id="loop_output"></ul>
+        </td>
+      </tr>
+      <tr>
+        <th colspan="2">
+          <input type="button" value="Compute" onclick="question4()" />
+        </th>
+      </tr>
+    </table>
+
+    <table border="1" id="generate_x">
+      <tr>
+        <th colspan="4">Question 5</th>
+      </tr>
+
+      <tr>
+        <th colspan="4">
+          <input type="button" value="Generate" onclick="question5()" />
+        </th>
+      </tr>
+      <tr>
+        <th>x</th>
+        <th>
+          <math
+            ><msup>
+              <mi>x</mi>
+              <mn>2</mn>
+            </msup></math
+          >
+        </th>
+        <th>
+          <math
+            ><mfrac>
+              <mn>1</mn>
+              <mn>x</mn>
+            </mfrac></math
+          >
+        </th>
+        <th>
+          <math>
+            <msqrt>
+              <mi>x</mi>
+            </msqrt>
+          </math>
+        </th>
+      </tr>
+    </table>
+  </body>
+</html>
